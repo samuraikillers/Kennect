@@ -1,0 +1,31 @@
+.box{
+    height: 350px;
+    width: 1000px;
+    border: 1px solid black;
+}
+
+.array-container {
+    display: flex;
+    align-items: flex-end;
+    height: 220px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin: 10px;
+    
+ } 
+
+.box {
+    
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid #000;
+    background-color: cadetblue;
+    
+} 
+
+.number {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+} 
+
