@@ -1,10 +1,12 @@
-
 import "./ButtonContainer.css"; 
-console.log()
+
 function ButtonContainer({ handleRandom }) {
- const handleButtonClick = (buttonNumber) => {
+ // passing the value of button clicked, passing to App.js file
+  const handleButtonClick = (buttonNumber) => {
    handleRandom(buttonNumber);
- };
+  };
+  
+  // creating button
   return (
     <div className="container">
       <button className="button" onClick={() => handleButtonClick(0)}>

@@ -1,5 +1,6 @@
+// Insertion sort algorithm
 export const insertionSort = (randomNumbers) => {
-  const sortedNumbers = [...randomNumbers]; // Create a new array
+  const sortedNumbers = [...randomNumbers];
   const len = sortedNumbers.length;
 
   for (let i = 1; i < len; i++) {
@@ -14,53 +15,57 @@ export const insertionSort = (randomNumbers) => {
     sortedNumbers[j + 1] = currentElement;
   }
 
-    return sortedNumbers;
+  return sortedNumbers;
 };
 
+// Selection sort algorithm
 export const selectionSort = (randomNumbers) => {
-    const sortedNumbers = [...randomNumbers];
-    const n = sortedNumbers.length;
+  const sortedNumbers = [...randomNumbers];
+  const n = sortedNumbers.length;
 
-    for (let i = 0; i < n - 1; i++) {
-      // Fix the loop condition here
-      let minIndex = i;
+  for (let i = 0; i < n - 1; i++) {
+    // Fix the loop condition here
+    let minIndex = i;
 
-      for (let j = i + 1; j < n; j++) {
-        if (sortedNumbers[j] < sortedNumbers[minIndex]) {
-          minIndex = j;
-        }
-      }
-
-      if (minIndex !== i) {
-        // Swap elements
-        [sortedNumbers[i], sortedNumbers[minIndex]] = [
-          sortedNumbers[minIndex],
-          sortedNumbers[i],
-        ];
+    for (let j = i + 1; j < n; j++) {
+      if (sortedNumbers[j] < sortedNumbers[minIndex]) {
+        minIndex = j;
       }
     }
 
-    return sortedNumbers;
+    if (minIndex !== i) {
+      // Swap elements
+      [sortedNumbers[i], sortedNumbers[minIndex]] = [
+        sortedNumbers[minIndex],
+        sortedNumbers[i],
+      ];
+    }
+  }
+
+  return sortedNumbers;
 };
 
+
+// Bubble sort algorithm
 export const bubbleSort = (randomNumbers) => {
- const sortedNumbers = [...randomNumbers];
+  const sortedNumbers = [...randomNumbers];
 
- for (let i = 0; i < sortedNumbers.length - 1; i++) {
-   for (let j = 0; j < sortedNumbers.length - 1 - i; j++) {
-     if (sortedNumbers[j] > sortedNumbers[j + 1]) {
-       // Swap elements
-       const temp = sortedNumbers[j];
-       sortedNumbers[j] = sortedNumbers[j + 1];
-       sortedNumbers[j + 1] = temp;
-     }
-   }
- }
+  for (let i = 0; i < sortedNumbers.length - 1; i++) {
+    for (let j = 0; j < sortedNumbers.length - 1 - i; j++) {
+      if (sortedNumbers[j] > sortedNumbers[j + 1]) {
+        // Swap elements
+        const temp = sortedNumbers[j];
+        sortedNumbers[j] = sortedNumbers[j + 1];
+        sortedNumbers[j + 1] = temp;
+      }
+    }
+  }
 
- // Move the return statement outside the inner loop
- return sortedNumbers;
+  return sortedNumbers;
 };
 
+
+// Quick sort algorithm
 const quickSort = (arr) => {
   if (arr.length <= 1) {
     return arr;
@@ -90,6 +95,8 @@ export const performQuickSort = (randomNumbers) => {
 };
 
 
+
+// Merge sort algorithm
 const merge = (left, right) => {
   let result = [];
   let leftIndex = 0;
@@ -124,6 +131,9 @@ export const performMergeSort = (randomNumbers) => {
   const sortedNumbers = mergeSort(randomNumbers);
   return sortedNumbers;
 };
+
+
+// Shell sort algorithm
 const shellSort = (arr) => {
   const len = arr.length;
   let gap = Math.floor(len / 2);
@@ -151,5 +161,3 @@ export const performShellSort = (randomNumbers) => {
   const sortedNumbers = shellSort([...randomNumbers]);
   return sortedNumbers;
 };
-
-

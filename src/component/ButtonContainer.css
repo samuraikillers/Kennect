@@ -1,21 +1,15 @@
 .container {
     display: flex;
-    /* Use flexbox to arrange buttons horizontally */
     background-color: #add8e6;
-    /* Light blue background color */
     padding: 20px;
-    /* Add padding as needed */
     height: 30px;
 }
 
 .button {
     margin-right: 10px;
-    /* Add margin between buttons */
     padding: 5px;
     border: 2px solid #000;
-    /* Border color */
     background-color: #fff;
-    /* Button background color */
     cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
-import './App.css';
+import "./App.css";
 import React, { useState } from "react";
-import RandomArray from './component/RandomArrays';
-import ButtonContainer from './component/ButtonContainer';
+import DataDisplay from "./component/DataDisplay";
+import ButtonContainer from "./component/ButtonContainer";
 import {
   insertionSort,
   selectionSort,
@@ -12,49 +12,61 @@ import {
 } from "./component/sortingAlgo";
 
 function App() {
-const [randomNumbers, setRandomNumbers] = useState(generateRandomNumbers());
+  // Usestate for setting the random and sorted numbers
+  const [data, setRandomNumbers] = useState(generateRandomNumbers());
+  // Usestate for checking the width change; initial width 30 on change 15
   const [startingWidth, setWidth] = useState(30);
 
+  // function to check the toggle
   const shrinkWidth = () => {
     setWidth((prevWidth) => (prevWidth === 30 ? 15 : 30));
   };
-  
-function generateRandomNumbers() {
-  const min = 1;
-  const max = 100;
-  const count = 20;
-  return Array.from(
-    { length: count },
-    () => Math.floor(Math.random() * (max - min + 1)) + min
-  );
-}
+
+  // generating random numbers between 1-100, and array size with 20
+  function generateRandomNumbers() {
+    const min = 1;
+    const max = 100;
+    const count = 20;
+    return Array.from(
+      { length: count },
+      () => Math.floor(Math.random() * (max - min + 1)) + min
+    );
+  }
+  // Function to call on random generator button
+  const handleRandomFunction = () => {
+    const newRandomNumbers = generateRandomNumbers();
+    console.log(data);
+    setRandomNumbers(newRandomNumbers);
+  };
+
+  // Checking the button pressed
   const buttonHandler = (value) => {
     switch (value) {
       case 0:
         handleRandomFunction();
         break;
       case 1:
-        setRandomNumbers(insertionSort(randomNumbers));
+        setRandomNumbers(insertionSort(data));
         console.log("insertion");
         break;
       case 2:
-        setRandomNumbers(selectionSort(randomNumbers));
+        setRandomNumbers(selectionSort(data));
         console.log("selection");
         break;
       case 3:
-        setRandomNumbers(bubbleSort(randomNumbers));
+        setRandomNumbers(bubbleSort(data));
         console.log("bubble");
         break;
       case 4:
-        setRandomNumbers(performQuickSort(randomNumbers));
+        setRandomNumbers(performQuickSort(data));
         console.log("quick sort");
         break;
       case 5:
-        setRandomNumbers(performMergeSort(randomNumbers));
+        setRandomNumbers(performMergeSort(data));
         console.log("merge");
         break;
       case 6:
-        setRandomNumbers(performShellSort(randomNumbers));
+        setRandomNumbers(performShellSort(data));
         console.log("shell");
         break;
       case 7:
@@ -65,32 +77,7 @@ function generateRandomNumbers() {
         console.log("other sort");
         break;
     }
-  }
-   
-
-// const shrinkWidth = () => {
-//   setWidth(() => {
-//     switchWidth = !switchWidth;
-//     console.log(switchWidth,startingWidth);
-//     if (switchWidth) return 30;
-//     else return 15;
-//   });
-// };
-
-   const handleRandomFunction = () => {
-     const newRandomNumbers = generateRandomNumbers();
-     console.log(randomNumbers);
-     setRandomNumbers(newRandomNumbers);
-   };
-  // // const numbers = [10, 100, 77, 40, 50, 60, 70, 80, 90, 100];
-  // const min = 1;
-  // const max = 100;
-  // const count = 20;
-
-  // const randomNumbers = Array.from(
-  //   { length: count },
-  //   () => Math.floor(Math.random() * (max - min + 1)) + min
-  // );
+  };
 
   return (
     <>
@@ -98,10 +85,7 @@ function generateRandomNumbers() {
         <h1 className="header">Comparison Sorting Algorithm</h1>
       </div>
       <ButtonContainer handleRandom={buttonHandler}></ButtonContainer>
-      <RandomArray
-        numbers={randomNumbers}
-        widthShrink={startingWidth}
-      ></RandomArray>
+      <DataDisplay numbers={data} widthShrink={startingWidth}></DataDisplay>
     </>
   );
 }
