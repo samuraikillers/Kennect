@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/kennect/static/css/main.d85b2529.css",
-    "main.js": "/kennect/static/js/main.1719b277.js",
-    "index.html": "/kennect/index.html",
-    "main.d85b2529.css.map": "/kennect/static/css/main.d85b2529.css.map",
-    "main.1719b277.js.map": "/kennect/static/js/main.1719b277.js.map"
+    "main.css": "/Kennect/static/css/main.d85b2529.css",
+    "main.js": "/Kennect/static/js/main.1719b277.js",
+    "index.html": "/Kennect/index.html",
+    "main.d85b2529.css.map": "/Kennect/static/css/main.d85b2529.css.map",
+    "main.1719b277.js.map": "/Kennect/static/js/main.1719b277.js.map"
   },
   "entrypoints": [
     "static/css/main.d85b2529.css",
